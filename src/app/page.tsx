@@ -1,113 +1,84 @@
+"use client"
+import React from "react";
+import Navbar from "@/components/Navbar";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Services from "@/app/components/Services";
+import Testimonial from "./components/Testimonial";
+import Link from "next/link";
+import { useRouter } from 'next/router';
+import { AnyARecord } from "dns";
 
-export default function Home() {
+
+
+const page = () => {
+ 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="bg-[#fafafa] relative scroll-smooth">
+      {/* jumbotron */}
+      <section className="bg-[url('/img/hero-image.avif')] h-screen bg-cover bg-center rounded-b-2xl">
+        <div className="bg-gradient-to-t from-black h-screen rounded-b-2xl flex items-center">
+          {/* HERO */}
+          <div className="h-[80%] flex justify-center items-center">
+            <div className="text-center text-wrap md:w-1/2 mx-5 text-[#fafafa]">
+              <h1 className="md:text-5xl font-bold text-3xl mb-5">Transforming Spaces with Affordable Furniture Solutions</h1>
+
+              <p className="mb-5 text-xl">
+                We pride ourselves on offering a vast selection of high-quality furniture pieces at unbeatable prices. From stylish sofas to elegant dining sets and everything in between, we're committed to helping you create a home you
+                love without breaking the bank.
+              </p>
+              <Button className="rounded-full bg-yellow-600 hover:bg-yellow-800"><Link href="/about">Explore how we work</Link></Button>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className="bg-white px-4">
+        <div className="md:w-[75%] grid  md:grid-cols-2      mx-auto md:p-16 p-10  gap-10">
+          <div>
+            <h3 className="text-lg font-semibold leading-6 md:text-left text-center">
+              We're a dedicated team committed to providing premium furniture solutions with excellence and innovation. With years of experience, we prioritize quality craftsmanship, personalized customer service, and sustainability. Join
+              us in redefining the furniture industry and creating inspiring spaces.
+            </h3>
+          </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <div className="relative hidden md:block">
+            <Image src="/img/chair.avif" alt="about image" className="object-cover rounded-xl" fill />
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      <section className="bg-white">
+        <div className="rounded-3xl px-4 bg-[#fafafa]">
+          <div className="grid grid-rows-8 gap-5 md:gap-0 md:w-[75%] h-screen mx-auto p-5 md:px-0 md:pt-0">
+            <div className="row-span-2  flex flex-col md:flex-row items-center justify-evenly mx-auto md:gap-16">
+              <div className="md:text-4xl text-3xl font-bold text-center md:text-left">
+                <h1>Exploring Our</h1>
+                <h1>Company Services</h1>
+              </div>
+              <div className="md:w-1/2">
+                <p className="md:line-clamp-3 text-center md:text-left">We offer a wide range of high-quality furniture products and services tailored to meet the diverse needs of our customers.</p>
+              </div>
+            </div>
+            <div className="md:row-span-4 row-span-3">
+              <div className=" relative h-full mx-auto">
+                <Image src="/img/interior-design.avif" alt="interior-design" className="object-cover rounded-2xl" fill loading="lazy" quality={60}/>
+              </div>
+            </div>
+            <div>
+              <Services />
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <section>
+        <div className="">
+          <Testimonial />
+        </div>
+      </section>
     </main>
   );
-}
+};
+
+export default page;
